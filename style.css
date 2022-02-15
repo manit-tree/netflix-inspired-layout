@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: google sans, roboto, sans-serif;
+  background-color: #1C1C1C;
+}
+
+.ux-banner {
+  width: 376px;
+  height: auto;
+  background-color: #333333;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.ux-banner img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#my-carousel-a, #my-carousel-b, #my-carousel-c, #my-carousel-d, #my-carousel-e, #my-carousel-f {
+  margin: clamp(1em, 2.5vw ,2em) 0;
+}
+
+.carousel-group {
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+}
+
+.carousel-items {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carousel-items:hover {
+  animation-play-state: paused;
+}
+
+.carousel-items:hover .carousel-item {
+  transform: scale(0.97);
+}
+
+.carousel-item {
+  max-width: 38vw;
+  margin-right: clamp(1em, 2.5vw ,2em);  
+  flex-shrink: 0;
+  aspect-ratio: 16 / 10;
+  transition: all 0.3s;
+}
+
+.carousel-item:hover {
+  transform: scale(1.1) !important;
+}
+
+.slide-left {
+  animation-name: slide-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--duration);
+  animation-play-state: running;
+  animation-delay: 1000ms;
+  animation-fill-mode: both;
+}
+
+.slide-right {
+  animation-name: slide-right;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--duration);
+  animation-play-state: running;
+  animation-delay: 1000ms;
+  animation-fill-mode: both;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(calc(0px + var(--shift)));
+  }
+
+  100% {
+    transform: translateX(calc(0px - var(--width) + var(--shift)));
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(calc(0px - var(--width) - var(--shift)));
+  }
+
+  100% {
+    transform: translateX(0px - var(--shift));
+  }
+}
+
